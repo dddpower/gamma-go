@@ -176,7 +176,7 @@ class GameState():
             past_state = past_state.previous_state
         return False
 
-    def ins_valid_move(self, move: Move):
+    def is_valid_move(self, move: Move):
         if self.is_over():
             return False
         if move.is_pass or move.is_resign:
