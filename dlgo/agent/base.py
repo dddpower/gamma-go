@@ -1,4 +1,4 @@
-from dlgo.goboard_slow import GameState
+from dlgo.goboard import GameState
 
 class Agent:
     def __init__(self):

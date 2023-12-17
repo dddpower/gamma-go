@@ -1,5 +1,5 @@
 from dlgo.gotypes import Player, Point
-from dlgo.goboard_slow import Move, Board
+from dlgo.goboard import Move, Board
 
 COLS = "ABCDEFGHJKLMNOPQRST"
 STONE_TO_CHAR = {
