@@ -1,5 +1,5 @@
 import enum
-from collections import namedtuple
+from typing import NamedTuple
 from typing import Literal
 
 color = Literal["black", "white"]
@@ -12,7 +12,10 @@ class Player(enum.Enum):
     def other(self) -> 'Player':
         return Player.black if self == Player.white else Player.white
 
-class Point(namedtuple('Point', 'row col')):
+class Point(NamedTuple):
+    row: int
+    col: int
+    
     def neighbors(self):
         return [
             Point(self.row - 1, self.col),

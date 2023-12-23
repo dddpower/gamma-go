@@ -1,4 +1,4 @@
-from typing import Iterable, Union, FrozenSet, Optional
+from typing import Iterable, Union, FrozenSet, Optional, Sized
 import copy
 from dlgo.gotypes import Player, Point
 from dlgo import zobrist
@@ -201,3 +201,13 @@ class GameState():
         return self.board.get(move.point) is None and \
             not self.is_move_self_capture(self.next_player, move) and \
             not self.does_move_violate_ko(self.next_player, move)
+    
+    def legal_moves(self) -> list[Move]:
+        def gen_legal_move():
+            for r in range(self.board.num_rows):
+                for c in range(self.board.num_cols):
+                    move = Move(point=Point(row=r + 1, col=c + 1))
+                    if self.is_valid_move(move):
+                        yield move
+        
+        return list(gen_legal_move())
